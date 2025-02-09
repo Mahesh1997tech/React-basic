@@ -1,46 +1,46 @@
  
 
-import { useState } from "react";
+// import { useState } from "react";
 
-//  function App(){
-//     // variable
-//     // let color="Red";
-//     const [color, setColor]=useState('red')
+// //  function App(){
+// //     // variable
+// //     // let color="Red";
+// //     const [color, setColor]=useState('red')
 
-//     const changecolor=()=>{
-//          setColor('Blue');
+// //     const changecolor=()=>{
+// //          setColor('Blue');
         
         
+// //     }
+// //     return(
+// //         <>
+// //         <h1>My favourite color is {color}</h1>
+// //         <button onClick={changecolor}>Blue</button>
+// //         </>
+// //     )
+// //  }
+
+// //  export default App;
+
+// function App(){
+
+//     const[counter,setCounter]=useState(0);
+//     const incrementCounter=()=>{
+//         setCounter(counter=>counter+1);
+//         setCounter(counter=>counter+1);
+//         setCounter(counter=>counter+1);
+
+
+
 //     }
 //     return(
-//         <>
-//         <h1>My favourite color is {color}</h1>
-//         <button onClick={changecolor}>Blue</button>
-//         </>
-//     )
-//  }
+//     <>
+//     <h1>count :{counter}  </h1>
+//     <button onClick={incrementCounter}> Click</button>
+//     </>)
+// }
 
-//  export default App;
-
-function App(){
-
-    const[counter,setCounter]=useState(0);
-    const incrementCounter=()=>{
-        setCounter(counter=>counter+1);
-        setCounter(counter=>counter+1);
-        setCounter(counter=>counter+1);
-
-
-
-    }
-    return(
-    <>
-    <h1>count :{counter}  </h1>
-    <button onClick={incrementCounter}> Click</button>
-    </>)
-}
-
-export default App;
+// export default App;
 
 
 // function App(){
@@ -66,3 +66,23 @@ export default App;
 //     ) 
 // }
 // export default App;
+import React,{useEffect, useState} from "react";
+
+
+function App(){
+    const [count ,setCount]=useState(0)
+// this use use effect without any dependency
+    useEffect(()=>{
+        setTimeout(()=>{
+setCount(count =>count+1);
+
+        },2000)
+    },[count])//[] dependency
+    return(
+        <>
+
+<h1> I ve rendered {count} times</h1>
+        </>
+    )
+}
+export default App;
