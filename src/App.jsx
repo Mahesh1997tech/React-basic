@@ -66,23 +66,51 @@
 //     ) 
 // }
 // export default App;
-import React,{useEffect, useState} from "react";
+// import React,{useEffect, useState} from "react";
 
 
-function App(){
-    const [count ,setCount]=useState(0)
-// this use use effect without any dependency
-    useEffect(()=>{
-        setTimeout(()=>{
-setCount(count =>count+1);
+// function App(){
+//     const [count ,setCount]=useState(0)
+// // this use use effect without any dependency
+//     useEffect(()=>{
+//         setTimeout(()=>{
+// setCount(count =>count+1);
+ 
+//         },2000)
+//     },[count])//[] dependency
+//     return(
+//         <>
 
-        },2000)
-    },[count])//[] dependency
+// <h1> I ve rendered {count} times</h1>
+//         </>
+//     )
+// }
+// export default App;
+ import React,{useEffect,useState,useRef} from "react";
+
+ function App(){
+
+    const[value,setValue]=useState(0);
+    // const[count,setCount]=useState(0);
+   const count=useRef(0);//we dont want to re render the component
+
+
+   //use effect with dependency
+useEffect(()=>{
+    count.current=count.current+1;
+});
+
     return(
         <>
-
-<h1> I ve rendered {count} times</h1>
+        <button onClick={()=>{setValue(prev =>prev-1)}}>-1</button>
+        <h1>{value}</h1>
+        <button onClick={()=>{setValue(prev =>prev+1)}}>+1</button>
+        <h1>Render Count:{count.current}</h1>
         </>
     )
-}
-export default App;
+
+
+
+ }
+ export default App;
+
