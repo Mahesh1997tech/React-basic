@@ -114,22 +114,39 @@
 //  }
 //  export default App;
 
-import react, { useRef } from "react";
+// import react, { useRef } from "react";
+
+// function App(){
+//     //this is used to access the dom element
+
+//     const inputElem=useRef();
+
+//     const btnCliked=(()=>{
+//         inputElem.current.style.background="red";
+//     })
+//     return(
+//         <>
+//         <input type="text" ref={inputElem} />
+//         <button onClick={btnCliked}>Click Here</button>
+//         </>
+//     )
+// }
+
+// export default App; 
+
+
+
+import react, { useState } from "react";
+import Profile from "./components/Profile";
+import Footer from "./components/Footer";
 
 function App(){
-    //this is used to access the dom element
 
-    const inputElem=useRef();
-
-    const btnCliked=(()=>{
-        inputElem.current.style.background="red";
-    })
-    return(
+        return (
         <>
-        <input type="text" ref={inputElem} />
-        <button onClick={btnCliked}>Click Here</button>
+        <Profile></Profile>
+        <Footer></Footer>
         </>
-    )
+    )                       
 }
-
-export default App; 
+ export default App;    
