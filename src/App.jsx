@@ -86,31 +86,50 @@
 //     )
 // }
 // export default App;
- import React,{useEffect,useState,useRef} from "react";
+//  import React,{useEffect,useState,useRef} from "react";
 
- function App(){
+//  function App(){
 
-    const[value,setValue]=useState(0);
-    // const[count,setCount]=useState(0);
-   const count=useRef(0);//we dont want to re render the component
+//     const[value,setValue]=useState(0);
+//     // const[count,setCount]=useState(0);
+//    const count=useRef(0);//we dont want to re render the component
 
 
-   //use effect with dependency
-useEffect(()=>{
-    count.current=count.current+1;
-});
+//    //use effect with dependency
+// useEffect(()=>{
+//     count.current=count.current+1;
+// });
 
+//     return(
+//         <>
+//         <button onClick={()=>{setValue(prev =>prev-1)}}>-1</button>
+//         <h1>{value}</h1>
+//         <button onClick={()=>{setValue(prev =>prev+1)}}>+1</button>
+//         <h1>Render Count:{count.current}</h1>
+//         </>
+//     )
+
+
+
+//  }
+//  export default App;
+
+import react, { useRef } from "react";
+
+function App(){
+    //this is used to access the dom element
+
+    const inputElem=useRef();
+
+    const btnCliked=(()=>{
+        inputElem.current.style.background="red";
+    })
     return(
         <>
-        <button onClick={()=>{setValue(prev =>prev-1)}}>-1</button>
-        <h1>{value}</h1>
-        <button onClick={()=>{setValue(prev =>prev+1)}}>+1</button>
-        <h1>Render Count:{count.current}</h1>
+        <input type="text" ref={inputElem} />
+        <button onClick={btnCliked}>Click Here</button>
         </>
     )
+}
 
-
-
- }
- export default App;
-
+export default App; 
